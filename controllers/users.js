@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = process.env;
 const passport = require('passport');
 
-const { User } = require('../models');
+const { User, WishList } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -50,6 +50,10 @@ router.post('/signup', async (req, res) => {
                     if (err) console.log('==> Error inside of hash', err);
                     // Change the password in newUser to the hash
                     newUser.password = hash;
+                    // Add WishList to user
+                    const newWishList = new WishList()
+                    newWishList.save()
+                    newUser.wishList.push(newWishList)
                     newUser.save()
                     .then(createdUser => res.json(createdUser))
                     .catch(err => console.log(err));

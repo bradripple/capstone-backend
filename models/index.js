@@ -27,9 +27,13 @@ db.on('error', (error) => {
 
 // Import models here
 const User = require('./user');
+const Image = require('./image');
+const WishList = require('./wishList');
 
 module.exports = {
     // model goes here
-    User
+    User,
+    Image,
+    WishList
 
 }

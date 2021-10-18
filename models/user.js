@@ -11,6 +11,9 @@ const userSchema = new Schema ({
         required: true,
         unique: true
     },
+    address: {
+        type: String
+    },
     password: {
         type: String,
         required: true
@@ -22,7 +25,8 @@ const userSchema = new Schema ({
     date: {
         type: Date,
         default: new Date()
-    }
+    },
+    wishList: [{ type: mongoose.Schema.Types.ObjectId, ref: 'WishList'}]
 });
 
 const User = mongoose.model('User', userSchema);
