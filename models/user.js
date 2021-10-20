@@ -26,7 +26,7 @@ const userSchema = new Schema ({
         type: Date,
         default: new Date()
     },
-    wishList: [{ type: mongoose.Schema.Types.ObjectId, ref: 'WishList'}]
+    wishList: { type: mongoose.Schema.Types.ObjectId, ref: 'WishList'}
 });
 
 const User = mongoose.model('User', userSchema);

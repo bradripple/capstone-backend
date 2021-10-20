@@ -16,7 +16,7 @@ const imageSchema = new Schema ({
         required: true
     },
     subject: {
-        type: String,
+        type: Array,
         required: true
     }
 });

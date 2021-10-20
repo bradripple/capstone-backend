@@ -24,6 +24,7 @@ app.get('/', async ( req, res ) => {
 //import models
 app.use('/users', require('./controllers/users'))
 app.use('/images', require('./controllers/images'))
+app.use('/wishlists', require('./controllers/wishLists'))
 
 app.listen(PORT, () => {
     console.log(`API running on ${PORT}, you beautiful creature!`);

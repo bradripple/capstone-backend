@@ -53,7 +53,7 @@ router.post('/signup', async (req, res) => {
                     // Add WishList to user
                     const newWishList = new WishList()
                     newWishList.save()
-                    newUser.wishList.push(newWishList)
+                    newUser.wishList = newWishList
                     newUser.save()
                     .then(createdUser => res.json(createdUser))
                     .catch(err => console.log(err));
