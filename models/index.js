@@ -10,10 +10,11 @@ if (process.env.NODE_ENV === 'production') {
     connectionString = process.env.MONGO_URI
 }
 
-mongoose.connect(connectionString, {
-    useNewUrlParser: true,
+mongoose.connect(connectionString || 'mongodb://localhost/8000', {
+    useNewUrlParser: true, 
     useUnifiedTopology: true,
-});
+    useFindAndModify: false
+})
 
 const db = mongoose.connection;
 
